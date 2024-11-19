@@ -1,0 +1,4 @@
+export JAVA_HOME=$(/usr/libexec/java_home -v 21)
+mvn clean package
+docker build -t cotelette-compte .
+docker run -p 8080:8080 cotelette-compte
