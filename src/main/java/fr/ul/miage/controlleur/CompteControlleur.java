@@ -1,6 +1,7 @@
 package fr.ul.miage.controlleur;
 
 import fr.ul.miage.entite.Compte;
+import fr.ul.miage.entite.Connection;
 import fr.ul.miage.service.CompteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +26,13 @@ public class CompteControlleur {
     @GetMapping("/{id}")
     public ResponseEntity<Compte> getUtilisateur(@PathVariable Long id) {
         return compteService.getCompte(id);
+    }
+
+    @PostMapping("/connexion")
+    public ResponseEntity<Connection> connexion(
+            @RequestParam String email,
+            @RequestParam String password) {
+        return compteService.connexion(email, password);
     }
 
 }

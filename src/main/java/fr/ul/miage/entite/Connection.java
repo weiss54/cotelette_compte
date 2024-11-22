@@ -10,13 +10,13 @@ import java.sql.Timestamp;
 public class Connection {
 
     @Id
-    private String idCompte;
+    private Long idcompte;
     private String clef;
     private Timestamp datecreation = new Timestamp(System.currentTimeMillis());
     private Timestamp datefinvalidite;
 
-    public String getIdCompte() {
-        return idCompte;
+    public Long getIdcompte() {
+        return idcompte;
     }
 
     public String getClef() {
@@ -31,8 +31,16 @@ public class Connection {
         return datefinvalidite;
     }
 
-    public void setDatefinvalidite(Timestamp datefinvalidite) {
-        this.datefinvalidite = datefinvalidite;
+    public void setIdCompte(Long idCompte) {
+        this.idcompte = idCompte;
+    }
+
+    public void setClef(String clef) {
+        this.clef = clef;
+    }
+
+    public void setDatefinvalidite() {
+        this.datefinvalidite = new Timestamp(System.currentTimeMillis()+86400000);
     }
 
     public boolean isNotExpired() {
